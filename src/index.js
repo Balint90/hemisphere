@@ -35,7 +35,7 @@ class App extends React.Component {
         else if (!this.state.errorMessage && this.state.latitude) {
             return (
                 <div>
-                    { this.state.latitude }
+                    <HemiSphereDisplay latitude={this.state.latitude} />
                 </div>
             );
         }
