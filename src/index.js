@@ -6,19 +6,21 @@ import Loader from "./Loader";
 
 class App extends React.Component {
 
-    constructor(props) {
-        super(props);  //call parent constructor
+    state = { latitude: null, errorMessage: '' }
 
-        this.state = { latitude: null, errorMessage: '' }
-
+    componentDidMount() {
         window.navigator.geolocation.getCurrentPosition(
-        (position) => {
-            this.setState({latitude: position.coords.latitude}, )
-        },
-        (error) => {
-            this.setState({errorMessage: 'Cannot determine location'})
-        },
+            (position) => {
+                this.setState({latitude: position.coords.latitude}, )
+            },
+            (error) => {
+                this.setState({errorMessage: 'Cannot determine location'})
+            },
         );
+    }
+
+    componentDidUpdate() {
+        console.log('componentDidUpdate');
     }
 
     render() {
